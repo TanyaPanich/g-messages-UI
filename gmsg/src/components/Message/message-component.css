@@ -1,0 +1,43 @@
+.message {
+  border: 1px solid #e2dddd;
+}
+.message-fiels {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.left {
+  flex: auto;
+}
+.rigth {
+  flex: auto;
+}
+
+.field {
+  background-color: #5f88d4f2;
+  margin: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
+}
+
+input {
+  background-color: #88a5ca57;
+  border-radius: 10px;
+  margin: 1rem 1rem;
+  padding: 1rem;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn {
+  flex: 1;
+  margin: 1rem 2rem 1rem 2rem;
+}
+#edit {
+  background-color: #6093c8b8;
+}
+#delete {
+  background-color: #c860608f;
+}

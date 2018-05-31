@@ -2,27 +2,28 @@ import React, { Component } from 'react'
 import './App.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import Header from './components/Header/header-component'
+import ComposeButton from './components/ComposeButton/compose-button-component'
+import ComposeForm from './components/ComposeForm/compose-form-component'
 import Messages from './components/Messages/messages-component'
-// import Header from './components/Header'
-// import Footer from './components/Footer'
 import { initialize } from './actions/app-action.js'
+import {withRouter, Route} from "react-router-dom"
 
 class App extends Component {
 
   async componentDidMount() {
-    console.log('componentDidMount ', this.props)
     this.props.initialize()
   }
 
   render() {
-    console.log('app render ', this.props)
+    console.log("location:", this.props.location)
       return (
-        <div className='App container'>
-          {/* <Header /> */}
-          <h1>Q3 assesment - training</h1>
-          <Messages />
-          {/* <Footer /> */}
-        </div>
+          <div className='App container'>
+            <Header />
+            <ComposeButton />
+            <Route path="/compose" component={ComposeForm} />
+            <Messages />
+          </div>
       )
   }
 }
@@ -32,7 +33,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  initialize
+  initialize,
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
